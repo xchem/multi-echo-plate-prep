@@ -1,0 +1,4 @@
+transfer-files/*
+attic/*
+echo-example-transfer-file.csv
+.DS_Store
