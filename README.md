@@ -17,13 +17,14 @@ The input CSV file should contain the following columns:
 
 | Column | Description |
 |--------|-------------|
-| `plate_ID` | Unique identifier for the source plate |
-| `Source Well` | Well position in source plate (e.g., A05, B12) |
-| `ASAP_batch_ID` | Sample batch identifier |
-| `Vol from stock nl` | Transfer volume in nanoliters |
+| `source-plate-ID` | Unique identifier for the source plate |
+| `source-well` | Well position in source plate (e.g., A05, B12) |
+| `sample-ID` | Sample batch identifier |
+| `transfer-volume(nL)` | Transfer volume in nanoliters |
 
 ## Output Format
 
+### Echo Transfer Files
 Each generated transfer file contains:
 
 | Column | Description |
@@ -32,6 +33,17 @@ Each generated transfer file contains:
 | `SrcWell` | Normalized source well position |
 | `Destination well` | Sequential destination well (A1, B1, C1, etc.) |
 | `XferVol` | Transfer volume in nanoliters |
+
+### Creoptix Platemap Files (Optional)
+When enabled, generates platemap files for each destination plate with:
+
+| Column | Description |
+|--------|-------------|
+| `Pos` | Well position (A1-P24 for 384-well plate) |
+| `Designation` | Sample ID for the well |
+| `Concentration` | Empty (for user input) |
+| `MW` | Empty (for user input) |
+| `Volume` | Empty (for user input) |
 
 ## Usage
 
@@ -52,6 +64,7 @@ from pathlib import Path
    PLATETYPE = "creoptix"
    INPUT_FILE = "sample-prep-file.csv"
    OUTPUT_DIR = "transfer-files"
+   GENERATE_CREOPTIX_FILES = True  # Set to False to skip Creoptix files
    ```
 3. **Execute Notebook**: Run all cells in `Echo_Transfer_Processor.ipynb`
 4. **Review Outputs**: Check the `transfer-files/` directory for generated files
@@ -62,6 +75,7 @@ from pathlib import Path
 - `PLATETYPE`: Plate type identifier (e.g., "creoptix")
 - `INPUT_FILE`: Path to input CSV file
 - `OUTPUT_DIR`: Directory for output files
+- `GENERATE_CREOPTIX_FILES`: `True` to generate Creoptix platemap files, `False` to skip
 
 ---
 
