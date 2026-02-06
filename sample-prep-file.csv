@@ -1,4 +1,4 @@
-﻿plate_ID,Source Well,ASAP_batch_ID,Vol from stock nl
+﻿source-plate-ID,source-well,sample-ID,transfer-volume(nL)
 1530852-Y4-59,A05,ASAP-0008583-001,50
 1530852-Y4-95,A05,ASAP-0012308-001,200
 1530852-Y4-95,B05,ASAP-0012311-001,200
