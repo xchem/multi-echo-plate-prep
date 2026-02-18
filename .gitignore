@@ -3,8 +3,10 @@ transfer-files/*
 attic/*
 
 # Example files
-echo-example-transfer-file.csv
-creoptix-example-file.csv
+*.csv
+!sample-prep-file.csv
+!creoptix-example-transfer-file.csv
+
 
 # Python
 __pycache__/
